@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>KaiOS Store</title>
+    <style>
+        /* CSS Reset */
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #262626;
+            color: #ffffff;
+            font-family: sans-serif;
+            overflow: hidden; 
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            background-color: #320b86;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        /* List Container */
+        #list {
+            position: absolute;
+            top: 28px;   
+            bottom: 30px; 
+            left: 0;
+            width: 100%;
+            overflow-y: auto; 
+            scroll-behavior: smooth; 
+        }
+
+        /* Items */
+        .item {
+            display: flex; /* Flexbox for Icon + Text */
+            align-items: center;
+            padding: 5px 10px;
+            border-bottom: 1px solid #4a4a4a;
+            height: 60px; 
+        }
+
+        .item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            margin-right: 15px;
+            background-color: #fff;
+            object-fit: cover;
+        }
+
+        .item-text {
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Focus State */
+        .item.active {
+            background-color: #00B0FF;
+            color: #fff;
+        }
+
+        /* Loading State */
+        #loading {
+            text-align: center;
+            padding-top: 100px;
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            height: 30px;
+            background-color: #262626;
+            border-top: 2px solid #00B0FF;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            line-height: 30px;
+            font-weight: bold;
+            z-index: 100;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Chijioke Store</header>
+
+    <div id="list">
+        <div id="loading">Connecting...</div>
+    </div>
+
+    <footer>
+        <span id="soft-left">Reload</span>
+        <span id="soft-center">GET</span>
+        <span id="soft-right">Exit</span>
+    </footer>
+
+    <script>
+        // --- UPDATED CONFIGURATION ---
+        const REPO_USER = "Chijioke12";
+        const REPO_NAME = "Kaios-store";
+        const BRANCH = "main"; 
+        
+        // This constructs the URL to fetch your apps list
+        const APPS_URL = `https://raw.githubusercontent.com/${REPO_USER}/${REPO_NAME}/${BRANCH}/apps.json`;
+
+        window.addEventListener('DOMContentLoaded', function() {
+            
+            var items = []; 
+            var appData = []; 
+            var listContainer = document.getElementById('list');
+            var currentIndex = 0;
+            var isLoading = true;
+
+            // Initialize
+            fetchApps();
+
+            // Key Listener
+            window.addEventListener('keydown', function(e) {
+                if(isLoading) return; 
+
+                switch(e.key) {
+                    case 'ArrowDown':
+                    case 'Down':
+                        move(1);
+                        break;
+
+                    case 'ArrowUp':
+                    case 'Up':
+                        move(-1);
+                        break;
+
+                    case 'Enter':
+                    case 'Accept':
+                        downloadApp(appData[currentIndex]);
+                        break;
+                    
+                    case 'SoftLeft': 
+                    case 'F1':
+                        fetchApps();
+                        break;
+                        
+                    case 'SoftRight':
+                    case 'F2':
+                        window.close(); // Attempt to close app
+                        break;
+                }
+            });
+
+            function fetchApps() {
+                isLoading = true;
+                listContainer.innerHTML = '<div id="loading">Loading Store...</div>';
+                
+                // We add a timestamp (?t=...) to force the phone to get the newest version, not a cached one
+                fetch(APPS_URL + '?t=' + Date.now())
+                .then(response => {
+                    if (!response.ok) throw new Error("Could not find apps.json");
+                    return response.json();
+                })
+                .then(data => {
+                    appData = data;
+                    renderList(data);
+                    isLoading = false;
+                })
+                .catch(err => {
+                    listContainer.innerHTML = '<div id="loading">Error loading store.<br>Is the repo Public?<br>Does apps.json exist?</div>';
+                    console.error(err);
+                });
+            }
+
+            function renderList(data) {
+                listContainer.innerHTML = ""; 
+                items = []; 
+
+                if(data.length === 0) {
+                    listContainer.innerHTML = '<div id="loading">Store is empty.</div>';
+                    return;
+                }
+
+                data.forEach((app, index) => {
+                    var div = document.createElement('div');
+                    div.className = 'item';
+                    
+                    var img = document.createElement('img');
+                    img.src = app.icon;
+                    // Fallback icon if image fails
+                    img.onerror = function() { this.style.backgroundColor = '#ccc'; }; 
+                    
+                    var span = document.createElement('span');
+                    span.className = 'item-text';
+                    span.textContent = app.name;
+
+                    div.appendChild(img);
+                    div.appendChild(span);
+                    listContainer.appendChild(div);
+                    items.push(div);
+                });
+
+                currentIndex = 0;
+                updateSelection(currentIndex);
+            }
+
+            function move(direction) {
+                if(items.length === 0) return;
+                currentIndex += direction;
+                if (currentIndex >= items.length) currentIndex = 0;
+                else if (currentIndex < 0) currentIndex = items.length - 1;
+                updateSelection(currentIndex);
+            }
+
+            function updateSelection(index) {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].classList.remove('active');
+                }
+                var currentItem = items[index];
+                currentItem.classList.add('active');
+                scrollToCenter(currentItem, listContainer);
+            }
+
+            function downloadApp(app) {
+                if(!app || !app.download) return;
+                
+                var choice = confirm("Download " + app.name + "?");
+                if(choice) {
+                    // This launches the browser to download the file
+                    window.open(app.download, '_blank');
+                }
+            }
+
+            function scrollToCenter(element, container) {
+                var elementTop = element.offsetTop;
+                var elementHeight = element.offsetHeight;
+                var containerHeight = container.clientHeight;
+                var targetScrollPos = elementTop - (containerHeight / 2) + (elementHeight / 2);
+                container.scrollTop = targetScrollPos;
+            }
+        });
+    </script>
+</body>
+</html>
