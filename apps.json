@@ -4,5 +4,12 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768163705340_icon-112.png",
     "download": "https://github.com/Chijioke12/Kaios-store/raw/main/downloads/1768163705340_bible.zip",
     "date": "2026-01-11T20:35:11.109Z"
+  },
+  {
+    "name": "Video",
+    "description": "",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/kaios-store/main/icons/1768166398997_icon-112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/kaios-store/main/packages/1768166398997_kaivideo.zip",
+    "date": "2026-01-11T21:20:05.246Z"
   }
 ]
