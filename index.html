@@ -76,11 +76,15 @@
             color: #fff;
         }
 
-        /* Loading State */
+        /* Loading / Error State */
         #loading {
             text-align: center;
             padding-top: 100px;
             color: #ccc;
+            font-size: 14px;
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 1.5;
         }
 
         /* Footer */
@@ -107,7 +111,7 @@
     <header>Chijioke Store</header>
 
     <div id="list">
-        <div id="loading">Connecting...</div>
+        <div id="loading">Loading Store...</div>
     </div>
 
     <footer>
@@ -117,13 +121,10 @@
     </footer>
 
     <script>
-        // --- UPDATED CONFIGURATION ---
-        const REPO_USER = "Chijioke12";
-        const REPO_NAME = "Kaios-store";
-        const BRANCH = "main"; 
-        
-        // This constructs the URL to fetch your apps list
-        const APPS_URL = `https://raw.githubusercontent.com/${REPO_USER}/${REPO_NAME}/${BRANCH}/apps.json`;
+        // --- CONFIGURATION ---
+        // Using ./ means "Look in the same folder". 
+        // This is the best way for GitHub Pages.
+        const APPS_URL = './apps.json';
 
         window.addEventListener('DOMContentLoaded', function() {
             
@@ -138,6 +139,12 @@
 
             // Key Listener
             window.addEventListener('keydown', function(e) {
+                // Allow reloading even if loading failed
+                if (e.key === 'SoftLeft' || e.key === 'F1') {
+                    fetchApps();
+                    return;
+                }
+
                 if(isLoading) return; 
 
                 switch(e.key) {
@@ -155,11 +162,6 @@
                     case 'Accept':
                         downloadApp(appData[currentIndex]);
                         break;
-                    
-                    case 'SoftLeft': 
-                    case 'F1':
-                        fetchApps();
-                        break;
                         
                     case 'SoftRight':
                     case 'F2':
@@ -170,12 +172,14 @@
 
             function fetchApps() {
                 isLoading = true;
-                listContainer.innerHTML = '<div id="loading">Loading Store...</div>';
+                listContainer.innerHTML = '<div id="loading">Connecting...</div>';
                 
-                // We add a timestamp (?t=...) to force the phone to get the newest version, not a cached one
+                // We add a timestamp (?t=...) to force the phone to get the newest version
                 fetch(APPS_URL + '?t=' + Date.now())
                 .then(response => {
-                    if (!response.ok) throw new Error("Could not find apps.json");
+                    if (!response.ok) {
+                        throw new Error("HTTP Error " + response.status);
+                    }
                     return response.json();
                 })
                 .then(data => {
@@ -184,7 +188,12 @@
                     isLoading = false;
                 })
                 .catch(err => {
-                    listContainer.innerHTML = '<div id="loading">Error loading store.<br>Is the repo Public?<br>Does apps.json exist?</div>';
+                    listContainer.innerHTML = '<div id="loading" style="color:#ff6b6b">' + 
+                        '<strong>Error Loading Store</strong><br><br>' + 
+                        err.message + '<br><br>' +
+                        '1. Check internet<br>' +
+                        '2. Ensure apps.json is in the same folder' +
+                        '</div>';
                     console.error(err);
                 });
             }
@@ -193,8 +202,8 @@
                 listContainer.innerHTML = ""; 
                 items = []; 
 
-                if(data.length === 0) {
-                    listContainer.innerHTML = '<div id="loading">Store is empty.</div>';
+                if(!data || data.length === 0) {
+                    listContainer.innerHTML = '<div id="loading">Store is empty.<br>Use the admin portal to add apps.</div>';
                     return;
                 }
 
@@ -205,7 +214,9 @@
                     var img = document.createElement('img');
                     img.src = app.icon;
                     // Fallback icon if image fails
-                    img.onerror = function() { this.style.backgroundColor = '#ccc'; }; 
+                    img.onerror = function() { 
+                        this.style.display = 'none'; // Hide broken image
+                    }; 
                     
                     var span = document.createElement('span');
                     span.className = 'item-text';
@@ -234,8 +245,10 @@
                     items[i].classList.remove('active');
                 }
                 var currentItem = items[index];
-                currentItem.classList.add('active');
-                scrollToCenter(currentItem, listContainer);
+                if(currentItem) {
+                    currentItem.classList.add('active');
+                    scrollToCenter(currentItem, listContainer);
+                }
             }
 
             function downloadApp(app) {
