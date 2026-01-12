@@ -25,5 +25,14 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768227315127_icon_112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaivideo.zip",
     "uploadedAt": "2026-01-12T14:15:21.060Z"
+  },
+  {
+    "id": 1768227702099,
+    "name": "Bible reader",
+    "description": "A free bible reader app specially designed for kaios",
+    "size": "15.99 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768227702099_icon_112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/bible.zip",
+    "uploadedAt": "2026-01-12T14:21:47.541Z"
   }
 ]
