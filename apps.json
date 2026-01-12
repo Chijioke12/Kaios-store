@@ -1,13 +1,5 @@
 [
   {
-    "id": 1768218047587,
-    "name": "Calculator",
-    "description": "A calculator app for kaios",
-    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768218047587_icon_112.png",
-    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaical.zip",
-    "uploadedAt": "2026-01-12T11:40:54.328Z"
-  },
-  {
     "id": 1768226327689,
     "name": "YouTube-video-downloader",
     "description": "Download YouTube videos directly to your kaios device",
