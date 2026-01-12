@@ -7,5 +7,14 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768226327689_icon_112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaidown.zip",
     "uploadedAt": "2026-01-12T13:58:54.386Z"
+  },
+  {
+    "id": 1768226689923,
+    "name": "Calculator",
+    "description": "Your calculator app for kaios with some scientific functions",
+    "size": "12.02 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768226689923_icon_112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaical.zip",
+    "uploadedAt": "2026-01-12T14:04:54.829Z"
   }
 ]
