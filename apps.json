@@ -16,5 +16,14 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768226689923_icon_112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaical.zip",
     "uploadedAt": "2026-01-12T14:04:54.829Z"
+  },
+  {
+    "id": 1768227315127,
+    "name": "Video player",
+    "description": "Your local video player for kaios",
+    "size": "14.9 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768227315127_icon_112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaivideo.zip",
+    "uploadedAt": "2026-01-12T14:15:21.060Z"
   }
 ]
