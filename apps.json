@@ -34,5 +34,14 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768227702099_icon_112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/bible.zip",
     "uploadedAt": "2026-01-12T14:21:47.541Z"
+  },
+  {
+    "id": 1768297130381,
+    "name": "Dictionary",
+    "description": "Your dictionary app for kaios",
+    "size": "21.08 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768297130381_icon_112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/dictionary.zip",
+    "uploadedAt": "2026-01-13T09:38:54.925Z"
   }
 ]
