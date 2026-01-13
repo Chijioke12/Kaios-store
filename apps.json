@@ -56,5 +56,16 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768317312703_icon112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaiarchive.zip",
     "uploadedAt": "2026-01-13T15:15:19.650Z"
+  },
+  {
+    "id": 1768318599084,
+    "uploadedAt": "2026-01-13T15:36:39.084Z",
+    "name": "Crusade prayer book",
+    "description": "This app is scraped from crusadeprayergroup.org, but optimised to be friendly with kaios",
+    "category": "app",
+    "version": "1.0",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/crusade.zip",
+    "size": "12.15 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318602179_icon_112.png"
   }
 ]
