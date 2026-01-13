@@ -67,5 +67,16 @@
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/crusade.zip",
     "size": "12.15 KB",
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318602179_icon_112.png"
+  },
+  {
+    "id": 1768318800668,
+    "uploadedAt": "2026-01-13T15:40:00.668Z",
+    "name": "PDF reader",
+    "description": "This is the number one best PDF reader optimized for kaiOS operating system",
+    "category": "app",
+    "version": "v1.0",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/droidreader.zip",
+    "size": "323.17 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318809864_icon_112.png"
   }
 ]
