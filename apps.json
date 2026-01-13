@@ -73,7 +73,7 @@
   {
     "id": 1768326321562,
     "name": "Kaical",
-    "manifestURL": "app://kaicalc/manifest.webapp",
+    "manifestURL": "app://kaicalc.app",
     "description": "",
     "category": "app",
     "version": "1.0.0",
