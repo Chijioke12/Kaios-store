@@ -69,16 +69,5 @@
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/droidreader.zip",
     "size": "323.17 KB",
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318809864_icon_112.png"
-  },
-  {
-    "id": 1768329225645,
-    "name": "Calculator",
-    "manifestURL": "app://kaicalc.com",
-    "description": "",
-    "category": "app",
-    "version": "1.0.0",
-    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768329225646_icon-112.png",
-    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/1768329227659_kaical.zip",
-    "size": "0.01 MB"
   }
 ]
