@@ -73,12 +73,12 @@
   {
     "id": 1768326321562,
     "name": "Kaical",
-    "manifestURL": "app://kaical/manifest.webapp",
+    "manifestURL": "app://kaicalc/manifest.webapp",
     "description": "",
     "category": "app",
     "version": "1.0.0",
-    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768326321563_icon-112.png",
-    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/1768326322928_kaical.zip",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768327157993_icon-112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/1768327159414_kaical.zip",
     "size": "0.01 MB"
   }
 ]
