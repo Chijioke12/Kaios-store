@@ -43,5 +43,16 @@
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768297130381_icon_112.png",
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/dictionary.zip",
     "uploadedAt": "2026-01-13T09:38:54.925Z"
+  },
+  {
+    "id": 1768317312703,
+    "name": "Internet achieve",
+    "description": "A scraped version of the internet achieve, browse the internet achieve on your kaios device",
+    "category": "app",
+    "version": "1.0",
+    "size": "8.13 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768317312703_icon112.png",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaiarchive.zip",
+    "uploadedAt": "2026-01-13T15:15:19.650Z"
   }
 ]
