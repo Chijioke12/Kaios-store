@@ -70,5 +70,17 @@
     "size": "323.17 KB",
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318809864_icon_112.png",
     "appId": "https://droid/manifest.webapp"
+  },
+  {
+    "id": 1768370795017,
+    "uploadedAt": "2026-01-14T06:06:35.017Z",
+    "name": "Kaicalc",
+    "appId": "https://calc/manifest.webapp",
+    "description": "Your calculator app for kaios",
+    "category": "app",
+    "version": "v1.0",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaicalc.zip",
+    "size": "11.74 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768370796530_icon_112.png"
   }
 ]
