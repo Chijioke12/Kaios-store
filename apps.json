@@ -69,5 +69,16 @@
     "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/droidreader.zip",
     "size": "323.17 KB",
     "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768318809864_icon_112.png"
+  },
+  {
+    "id": 1768348919185,
+    "uploadedAt": "2026-01-14T00:01:59.185Z",
+    "name": "Kaical",
+    "description": "Your calculator app for kaios",
+    "category": "app",
+    "version": "v1.0",
+    "download": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/packages/kaicalc.zip",
+    "size": "11.74 KB",
+    "icon": "https://raw.githubusercontent.com/Chijioke12/Kaios-store/main/icons/1768348921251_icon_112.png"
   }
 ]
