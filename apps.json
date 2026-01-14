@@ -75,7 +75,7 @@
     "id": 1768370795017,
     "uploadedAt": "2026-01-14T06:06:35.017Z",
     "name": "Kaicalc",
-    "appId": "https://calc/manifest.webapp",
+    "appId": "app://calculator.yourdomain.com",
     "description": "Your calculator app for kaios",
     "category": "app",
     "version": "v1.0",
